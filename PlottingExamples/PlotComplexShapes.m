@@ -150,7 +150,7 @@ function PlotComplexShapes(shape,flag_PlotBonds)
         Nnodes = length(xx);
 
         % ----------------------------------------------------------------
-        %                  Remove points outside circle
+        %                  Remove nodes outside circle
         % ----------------------------------------------------------------
 
         % Circular domain center coordinates (Xc,Yc) and radius R
@@ -196,6 +196,31 @@ function PlotComplexShapes(shape,flag_PlotBonds)
 
         % Number of nodes
         Nnodes = length(xx);
+
+        % ----------------------------------------------------------------
+        %           Remove vertices that do not belong to cells 
+        %              corresponding to nodes inside circle
+        % ----------------------------------------------------------------
+
+        % Find array of vertices' numbers corresponding to nodes inside circle
+        I_vertices = unique(M(:));
+
+        % Set cell vertices arrays with updated values
+        xx1 = xx1(I_vertices);
+        yy1 = yy1(I_vertices);
+
+        % Loop over vertices' numbers
+        for n = 1:length(I_vertices)
+
+            % Vertex number
+            nv = I_vertices(n);
+
+            % Update array M: replace values of entries with "old" vertex number (nv) 
+            %                 by "new" vertex number (n)
+            I = (M==nv);
+            M = M + (n - nv)*I;
+
+        end
 
         % ----------------------------------------------------------------
         %                         Plot grid
@@ -287,6 +312,31 @@ function PlotComplexShapes(shape,flag_PlotBonds)
 
         % Number of nodes
         Nnodes = length(xx);
+
+        % ----------------------------------------------------------------
+        %           Remove vertices that do not belong to cells 
+        %              corresponding to nodes outside hole
+        % ----------------------------------------------------------------
+
+        % Find array of vertices' numbers corresponding to nodes outside hole
+        I_vertices = unique(M(:));
+
+        % Set cell vertices arrays with updated values
+        xx1 = xx1(I_vertices);
+        yy1 = yy1(I_vertices);
+
+        % Loop over vertices' numbers
+        for n = 1:length(I_vertices)
+
+            % Vertex number
+            nv = I_vertices(n);
+
+            % Update array M: replace values of entries with "old" vertex number (nv) 
+            %                 by "new" vertex number (n)
+            I = (M==nv);
+            M = M + (n - nv)*I;
+
+        end
 
         % ----------------------------------------------------------------
         %                         Plot grid
