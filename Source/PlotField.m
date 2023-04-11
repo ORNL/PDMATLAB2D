@@ -31,9 +31,13 @@
 % The function can take empty arrays for the following inputs:
 % box     : if empty, then the axes limits are set to [min(xx) max(xx) min(yy) max(yy)]
 % cmap    : if empty, then the function uses MATLAB's default colormap
-% climits : if empty, then the color limits are set to [min(cnodes) max(cnodes)] 
+% climits : if empty, then the color limits are set to [min(cnodes)-tol max(cnodes)+tol] 
+%           where tol is a tolerance
 
 function PlotField(nfig,xx,yy,cnodes,ctitle,psize,climits,cmap,box)
+
+    % Tolerance
+    tol = 1E-15;
 
     % Create figure
     fig   = figure(nfig);
@@ -84,7 +88,7 @@ function PlotField(nfig,xx,yy,cnodes,ctitle,psize,climits,cmap,box)
 
     % Color limits
     if isempty(climits)
-        clim([min(cnodes) max(cnodes)])
+        clim([min(cnodes)-tol max(cnodes)+tol])
     else
         clim(climits)
     end  
