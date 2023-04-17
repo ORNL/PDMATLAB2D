@@ -11,7 +11,7 @@
 % ========================================================================
 
 % ========================================================================
-% Main function for running a PDMATLAB2D simulation
+% Main script for running a PDMATLAB2D simulation
 % ========================================================================
 
 % Check if simulation output directory exists and creates it otherwise

@@ -584,7 +584,7 @@ function [Vk,rk_hat,xk_hat,yk_hat] = NeighborAreaBondLengthCoord(xi,xk,yi,yk,dx,
 
     else
 
-        error('Unknown algorithm name.')
+        error('Invalid AlgName.')
 
     end
 

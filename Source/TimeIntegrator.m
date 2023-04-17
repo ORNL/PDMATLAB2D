@@ -66,6 +66,24 @@
 % W           : macroleastic energy density for all nodes (at time t+dt)    
 % u_NA        : updated array of neighbor numbers for all nodes after possible bond breaking (at time t+dt)
 
+% Discussion:
+% ----------
+% The input variable "TimeScheme" currently only takes 'VVerlet' as valid input. 
+% Additional time-integration schemes can be added using the overall if statement 
+% by adding an elseif statement to specify a condition for each desired
+% time-integration scheme. As an example, if the 'X' time-integration scheme 
+% is needed, one could extend the if statement as follows:
+%
+% if strcmp(TimeScheme,'VVerlet')
+%
+% elseif strcmp(TimeScheme,'X')
+%
+% else
+%
+%     error('Invalid TimeScheme.')
+%
+% end
+
 function [v,w,Vv,Vw,Fv,Fw,bv,bw,W,u_NA] = TimeIntegrator(TimeScheme,xx,yy,v,w,Vv,Vw,Fv,Fw,bv,bw,t,bvfunc,bwfunc,dt,u_NA,IF_NA,V_NA,r_hat_NA,x_hat_NA,y_hat_NA,rho,c,model,flag_RDUG,so,mask_nofail,flag_BB)
 
     % --------------------------------------------------------------------
