@@ -30,7 +30,7 @@ function PDMATLAB2D(InputDeck)
     cd('InputFiles/')
     run(InputDeck);
 
-    % Run main function
+    % Run Main script
     cd('../Source/')
     Main
  

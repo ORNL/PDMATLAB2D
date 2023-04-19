@@ -59,8 +59,8 @@
 %
 % The input variable "model" currently only takes 'GPMB' as valid input. 
 % Additional models can be added using the overall if statement by adding
-% an extra condition. As an example, if an 'X' model is needed, one could 
-% extend the if statement as follows:
+% an elseif statement to specify a condition for each desired model. As an example, 
+% if the 'X' model is needed, one could extend the if statement as follows:
 %
 % if strcmp(model,'GPMB')
 %
@@ -68,7 +68,7 @@
 %
 % else
 %
-%     error('Model unknown.')
+%     error('Invalid model.')
 %
 % end
 
@@ -269,7 +269,7 @@ function [Fv,Fw,W] = ForceEnergyDensity(xx,yy,v,w,c,u_NA,IF_NA,V_NA,r_hat_NA,x_h
 
     else
 
-        error('Model unknown.')
+        error('Invalid model.')
 
     end
 
