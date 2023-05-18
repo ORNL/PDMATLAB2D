@@ -111,7 +111,7 @@ tol = 1E-15;
 % Parameters
 xm    = 2.5;     % x-coordinate of pulse center 
 ym    = 2.5;     % y-coordinate of pulse center 
-A     = 1;       % amplitude of radial Gaussian distribution
+A     = 0.025;   % amplitude of radial Gaussian distribution
 sigma = 1/30;    % standard deviation of radial Gaussian distribution
 mu    = 6*sigma; % radial distance from pulse center of radial Gaussian distribution mean 
 
@@ -143,7 +143,7 @@ TimeStepDisplayFrequency = 10;
 flag_FinalPlots = 1;
 
 % Plot settings
-%                     Field Name            Field variable       Colorbar title  Point size  Colormap limits   Colormap    Axes limits    Configuration
-PlotSettings = {'DisplacementMagnitude' , 'sqrt(v.^2 + w.^2)'  , '$\|{\bf u}\|$' ,    8    ,     [0 1.0]   ,   'parula'  , [Xo Xn Yo Yn] , 'Reference'};
+%                     Field Name             Field variable         Colorbar title   Point size  Colormap limits   Colormap    Axes limits    Configuration
+PlotSettings = {'DisplacementMagnitude' , 'sqrt(v.^2 + w.^2)/A'  , '$\|{\bf u}\|/A$' ,    8    ,     [0 1.0]   ,   'parula'  , [Xo Xn Yo Yn] , 'Reference'};
 
 % ------------------------------------------------------------------------
