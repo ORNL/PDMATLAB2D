@@ -145,7 +145,7 @@ PreNotchCoordinates = [-0.05  0.0  0.0  0.0];
 flag_DynamicPlotting = 1;
 
 % Frequency of plotting during time integration
-DynamicPlotFrequency = 40; % Plot every 40 time steps (beginning from the first one).
+DynamicPlotFrequency = 40; % Plot every 40 time steps (beginning from the first one)
 
 % Frequency of time-integration step display
 TimeStepDisplayFrequency = 20;

@@ -129,7 +129,7 @@ function [Vk,rk_hat,xk_hat,yk_hat] = NeighborAreaBondLengthCoord(xi,xk,yi,yk,dx,
         xk_hat = xk;
         yk_hat = yk;
 
-    elseif strcmp(AlgName,'PA-AC') ||  strcmp(AlgName,'IPA-AC')
+    elseif strcmp(AlgName,'PA-AC') || strcmp(AlgName,'IPA-AC')
 
         % ----------------------------------------------------------------
         %              PA-AC algorithm or IPA-AC algorithm 
