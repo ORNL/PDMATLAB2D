@@ -41,6 +41,9 @@
 
 function [u_NA] = BondBreaking(xx,yy,v,w,so,u_NA,r_hat_NA,x_hat_NA,y_hat_NA,mask_nofail)
 
+    % Tolerance
+    tol = 1E-15;
+
     % Number of nodes
     Nnodes = length(xx);
 
@@ -100,12 +103,12 @@ function [u_NA] = BondBreaking(xx,yy,v,w,so,u_NA,r_hat_NA,x_hat_NA,y_hat_NA,mask
                 rk2 = rxk^2 + ryk^2;       % current bond length squared
 
                 % Note: the critical stretch condition is:
-                %       s := (sqrt(rk2) - Rk)/Rk > so
+                %       s := (sqrt(rk2) - Rk)/Rk >= so
                 %       This is equivalent to the condition
-                %             rk2 > Rk^2 * (so+1)^2
+                %             rk2 >= Rk^2 * (so+1)^2
                 %       because s = sqrt(rk2)/Rk - 1
 
-                if rk2  > ((so+1)*Rk)^2
+                if rk2  > ((so+1)*Rk)^2 - tol
 
                     % Remove cell uk from neighbor list of node ui
                     u_NA(ui,z) = 0;
