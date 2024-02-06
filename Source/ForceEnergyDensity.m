@@ -12,7 +12,7 @@
 
 % ========================================================================
 % The function ForceEnergyDensity computes the internal force density and 
-% the macroleastic energy density for all nodes
+% the macroelastic energy density for all nodes
 % ========================================================================
 
 % Input
@@ -39,7 +39,7 @@
 % ------
 % Fv         : x-component of internal force density for all nodes
 % Fw         : y-component of internal force density for all nodes
-% W          : macroleastic energy density for all nodes
+% W          : macroelastic energy density for all nodes
 
 % Discussion:
 % ----------
@@ -83,10 +83,10 @@ function [Fv,Fw,W] = ForceEnergyDensity(xx,yy,v,w,c,u_NA,IF_NA,V_NA,r_hat_NA,x_h
         % Number of nodes
         Nnodes = length(xx);
     
-        % Initialize internal force density components and macroleastic energy density arrays
+        % Initialize internal force density components and macroelastic energy density arrays
         Fv = zeros(Nnodes,1); % Array of x-components of internal force density for all nodes
         Fw = zeros(Nnodes,1); % Array of y-components of internal force density for all nodes
-        W  = zeros(Nnodes,1); % Array of macroleastic energy density for all nodes
+        W  = zeros(Nnodes,1); % Array of macroelastic energy density for all nodes
    
         % Find maximum number of neighbors any node can have
         zmax = length(u_NA(1,:));
@@ -165,16 +165,16 @@ function [Fv,Fw,W] = ForceEnergyDensity(xx,yy,v,w,c,u_NA,IF_NA,V_NA,r_hat_NA,x_h
                         Fw(uk) = Fw(uk) - fwk*Vk;
 
                         % ------------------------------------------------
-                        %      Compute macroleastic energy density
+                        %      Compute macroelastic energy density
                         % ------------------------------------------------
 
                         % Compute bond pairwise potential
                         wk = 0.5*c*IFk*(sk^2)*Rk;
 
-                        % Update macroleastic energy density of node ui
+                        % Update macroelastic energy density of node ui
                         W(ui) = W(ui) + 0.5*wk*Vk;
 
-                        % Update macroleastic energy density of node uk
+                        % Update macroelastic energy density of node uk
                         W(uk) = W(uk) + 0.5*wk*Vk;
 
                     end
@@ -248,13 +248,13 @@ function [Fv,Fw,W] = ForceEnergyDensity(xx,yy,v,w,c,u_NA,IF_NA,V_NA,r_hat_NA,x_h
                         Fw(ui) = Fw(ui) + fwk*Vk;
 
                         % ------------------------------------------------
-                        %      Compute macroleastic energy density
+                        %      Compute macroelastic energy density
                         % ------------------------------------------------
 
                         % Compute bond pairwise potential
                         wk = 0.5*c*IFk*(sk^2)*Rk;
 
-                        % Update macroleastic energy density of node ui
+                        % Update macroelastic energy density of node ui
                         W(ui) = W(ui) + 0.5*wk*Vk;
 
                     end
