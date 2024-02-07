@@ -172,7 +172,7 @@ Vw = Vwofunc(xx,yy); % y-component of initial velocity
 fprintf('Impose initial conditions ....................... = %f (sec)\n',toc)
 
 % ------------------------------------------------------------------------
-% Compute initial internal force density and macroleastic energy density
+% Compute initial internal force density and macroelastic energy density
 % ------------------------------------------------------------------------
 
 tic

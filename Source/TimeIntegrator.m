@@ -63,7 +63,7 @@
 % Fw          : y-component of internal force density for all nodes (at time t+dt)
 % bv          : x-component of body force density for all nodes (at time t+dt)
 % bw          : y-component of body force density for all nodes (at time t+dt)
-% W           : macroleastic energy density for all nodes (at time t+dt)    
+% W           : macroelastic energy density for all nodes (at time t+dt)    
 % u_NA        : updated array of neighbor numbers for all nodes after possible bond breaking (at time t+dt)
 
 % Discussion:
@@ -121,7 +121,7 @@ function [v,w,Vv,Vw,Fv,Fw,bv,bw,W,u_NA] = TimeIntegrator(TimeScheme,xx,yy,v,w,Vv
             error('flag_BB should be 0 or 1.')
         end
         
-        % Compute internal force density and macroleastic energy density at t+dt for all nodes
+        % Compute internal force density and macroelastic energy density at t+dt for all nodes
         [Fv,Fw,W] = ForceEnergyDensity(xx,yy,v,w,c,u_NA,IF_NA,V_NA,r_hat_NA,x_hat_NA,y_hat_NA,model,flag_RDUG);
 
         % Compute body force density at t+dt for all nodes 

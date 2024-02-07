@@ -240,7 +240,7 @@ function TestForceEnergyDensity
 
                     % ----------------------------------------------------
                     %            Compute internal force density 
-                    %            and macroleastic energy density
+                    %            and macroelastic energy density
                     % ----------------------------------------------------
 
                     % Number of nodes
