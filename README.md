@@ -1,7 +1,7 @@
 # PDMATLAB2D
 ## A simple, educational 2D MATLAB implementation of peridynamics
 
-The PDMATLAB2D code is a meshfree peridynamics implementation in MATLAB suitable for simulation of two-dimensional fracture problems. The current version implements bond-based brittle elastic peridynamics models and a critical stretch criterion for bond breaking. PDMATLAB2D provides an entry-level peridynamics computational tool for educational and training purposes. It also serves as an accessible and easily modifiable computational tool for peridynamics researchers who would like to adapt the code for a multitude of peridynamics simulations.
+The PDMATLAB2D code is a meshfree peridynamics implementation in MATLAB suitable for simulation of two-dimensional fracture problems. The current version implements a bond-based brittle elastic peridynamic model and a critical stretch criterion for bond breaking. PDMATLAB2D provides an entry-level peridynamics computational tool for educational and training purposes. It also serves as an accessible and easily modifiable computational tool for peridynamics researchers who would like to adapt the code for a multitude of peridynamics simulations.
 
 ## Run
 
@@ -13,21 +13,22 @@ PDMATLAB2D('CrackBranching')
 
 Tests are located in the `Tests/` folder and can be run individually to check individual components.
 
-Individual plots can be created (as in the manuscript below) from the `PlottingExamples/` folder. Plots can be easily generated within the folder via the function `PlotPaperFigures'.
+Individual plots can be created (as in the paper below) from the `PlottingExamples/` folder. Plots can be easily generated within the folder via the function `PlotPaperFigures'.
 
 ## Citing PDMATLAB2D
 
 If you use PDMATLAB2D in your work, please cite the following paper:
 ```
-@article{seleson2022,
-  title = {PDMATLAB2D: A Peridynamics MATLAB Two-Dimensional Code},
-  year = {2022},
-  author = {Pablo Seleson and Marco Pasetto and Yohan John and Jeremy Trageser and Samuel Temple Reeve},
-  notes = {Under review}
+@article{Seleson2024,
+  author = {Seleson, Pablo and Pasetto, Marco and John, Yohan and Trageser, Jeremy and Reeve, Samuel Temple},
+  title = {PDMATLAB2D: A Peridynamics MATLAB Two-dimensional Code},
+  journal = {Journal of Peridynamics and Nonlocal Modeling},
+  year = {2024},
+  url={https://doi.org/10.1007/s42102-023-00104-w}
 }
 ```
 
-If you would like to cite the software itself, cite the current release from [Zenodo](https://zenodo.org/record/7348668#.Y308ZrLMLKJ).
+If you would like to cite the software itself, cite the current release from [Zenodo](https://zenodo.org/doi/10.5281/zenodo.7348667).
 
 ## Contributing
 
