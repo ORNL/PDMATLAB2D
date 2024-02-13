@@ -28,7 +28,7 @@ If you use PDMATLAB2D in your work, please cite the following paper:
 }
 ```
 
-If you would like to cite the software itself, cite the current release from [Zenodo](https://doi.org/10.5281/zenodo.8309688).
+If you would like to cite the software itself, cite the current release from [Zenodo](https://zenodo.org/doi/10.5281/zenodo.7348667).
 
 ## Contributing
 
