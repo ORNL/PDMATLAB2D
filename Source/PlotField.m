@@ -86,12 +86,30 @@ function PlotField(nfig,xx,yy,cnodes,ctitle,psize,climits,cmap,box)
     % Colorbar title font size
     hcb.Title.FontSize = 20;
 
+    % Get MATLAB version year
+    MATLABversion = version('-release'); 
+    MATLAByear    = str2num(MATLABversion(1:4));
+    
     % Color limits
-    if isempty(climits)
-        clim([min(cnodes)-tol max(cnodes)+tol])
+    
+    % Note: the MATLAB function 'caxis' was renamed 'clim' starting with
+    %       version R2022a (https://www.mathworks.com/help/matlab/ref/clim.html)
+
+    if MATLAByear < 2022
+        % Use caxis to set colormap limits
+        if isempty(climits)
+            caxis([min(cnodes)-tol max(cnodes)+tol])
+        else
+            caxis(climits)
+        end
     else
-        clim(climits)
-    end  
+        % Use clim to set colormap limits
+        if isempty(climits)
+            clim([min(cnodes)-tol max(cnodes)+tol])
+        else
+            clim(climits)
+        end
+    end
 
     % Colormap
     if isempty(cmap)
