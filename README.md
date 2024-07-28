@@ -23,8 +23,11 @@ If you use PDMATLAB2D in your work, please cite the following paper:
   author = {Seleson, Pablo and Pasetto, Marco and John, Yohan and Trageser, Jeremy and Reeve, Samuel Temple},
   title = {PDMATLAB2D: A Peridynamics MATLAB Two-dimensional Code},
   journal = {Journal of Peridynamics and Nonlocal Modeling},
+  volume = {6},
+  number = {1},
+  pages = {149-205},
   year = {2024},
-  url={https://doi.org/10.1007/s42102-023-00104-w}
+  url = {https://doi.org/10.1007/s42102-023-00104-w}
 }
 ```
 
