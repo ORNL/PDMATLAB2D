@@ -146,4 +146,10 @@ flag_FinalPlots = 1;
 %                     Field Name             Field variable         Colorbar title   Point size  Colormap limits   Colormap    Axes limits    Configuration
 PlotSettings = {'DisplacementMagnitude' , 'sqrt(v.^2 + w.^2)/A'  , '$\|{\bf u}\|/A$' ,    8    ,     [0 1.0]   ,   'parula'  , [Xo Xn Yo Yn] , 'Reference'};
 
+% Flag to create video(s): works only if flag_DynamicPlotting = 1
+flag_video = 1;
+
+% Video frame rate
+video_frate = 20;
+
 % ------------------------------------------------------------------------

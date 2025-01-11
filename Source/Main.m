@@ -14,9 +14,54 @@
 % Main script for running a PDMATLAB2D simulation
 % ========================================================================
 
-% Check if simulation output directory exists and creates it otherwise
+% Check if simulation output directory exists and create it otherwise
 if ~exist(['../Outputs/' InputDeck], 'dir')
     mkdir(['../Outputs/' InputDeck])
+end
+
+% ------------------------------------------------------------------------
+%                       Create video file(s)
+% ------------------------------------------------------------------------
+
+if flag_DynamicPlotting == 1
+
+    % Check if video flag is defined
+    if exist('flag_video','var')
+
+        if flag_video == 1
+            % Check if video output directory exists and create it otherwise
+            if ~exist(['../Videos/' InputDeck], 'dir')
+                mkdir(['../Videos/' InputDeck])
+            end
+
+            % Find number of plots: a video is generated for each plot
+            [s1,~] = size(PlotSettings);
+
+            % Initialize VideoWriter array
+            vidfile = VideoWriter.empty(s1, 0);
+
+            % Loop over plots
+            for nplot = 1:s1
+                % Read plot field name
+                field_name = PlotSettings{nplot,1};
+
+                % Video file name
+                video_filename = ['../Videos/' InputDeck '/' field_name '.mp4'];
+
+                % Open video file
+                vidfile(nplot) = VideoWriter(video_filename,'MPEG-4');
+                vidfile(nplot).FrameRate = video_frate;
+                open(vidfile(nplot));
+            end
+        end
+
+    else
+
+        % Define null video flag
+        flag_video = 0;
+
+    end
+
 end
 
 % ------------------------------------------------------------------------
@@ -314,6 +359,23 @@ for n = 1:Nt-1
                     error('Invalid configuration.')
                 end
 
+                % Video update
+                if flag_video == 1
+                    % Access figure window
+                    f = figure(nfig);
+
+                    % Format time for title
+                    time = sprintf('%.2e', t);
+                    time = regexprep(time, '(e[\+\-])0(\d)', '$1$2');
+
+                    % Set figure title
+                    title(['Time = ' time '\,s'], 'Interpreter', 'latex')
+
+                    % Capture frame and write it to video file
+                    frame = getframe(gcf);
+                    writeVideo(vidfile(nplot),frame);
+                end
+
             end
 
         end
@@ -381,6 +443,30 @@ elseif flag_FinalPlots == 1
         % Save figure
         filename = ['../Outputs/' InputDeck '/' cnodes_name '.eps'];
         saveas(gcf,filename,'epsc');
+
+        if flag_DynamicPlotting == 1
+
+            % Video update
+            if flag_video == 1
+                % Access figure window
+                f = figure(nfig);
+
+                % Format time for title
+                time = sprintf('%.2e', t);
+                time = regexprep(time, '(e[\+\-])0(\d)', '$1$2');
+
+                % Set figure title
+                title(['Time = ' time '\,s'], 'Interpreter', 'latex')
+
+                % Capture frame and write it to video file
+                frame = getframe(gcf);
+                writeVideo(vidfile(nplot),frame);
+
+                % Close video file
+                close(vidfile(nplot))
+            end
+            
+        end
 
     end
 

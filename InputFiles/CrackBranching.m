@@ -161,4 +161,10 @@ PlotSettings = {'StrainEnergyDensity' , 'log10(W)'  , '$\log_{10}(W)$'  ,    8  
 % Flag to visualize pre-notch as damaged
 flag_DamagedPrenotches = 1;
 
+% Flag to create video(s): works only if flag_DynamicPlotting = 1
+flag_video = 1;
+
+% Video frame rate
+video_frate = 20;
+
 % ------------------------------------------------------------------------
